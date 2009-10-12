@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Daniel Bergey</string>
+	<key>ordering</key>
+	<array>
+		<string>A2BC3BEC-5E52-4A73-BDE4-9EB21C12458C</string>
+		<string>F61A9B5A-A31E-45C0-8A08-968A50664CC3</string>
+		<string>5B2EC185-EBF3-4848-AB77-C16DD95E2EE9</string>
+		<string>690649C3-CE71-4DDC-A41F-F6BBA1B8AC53</string>
+	</array>
+	<key>uuid</key>
+	<string>088C2207-464E-4DB1-B5DE-BEB54CCEDE82</string>
+</dict>
+</plist>

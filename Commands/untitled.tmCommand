@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+require ENV['TM_BUNDLE_SUPPORT']+'/functions.rb'
+
+fetch = FunctionFetch.new
+puts fetch.goToDef(STDIN.read)
+</string>
+	<key>fallbackInput</key>
+	<string>word</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>~$</string>
+	<key>name</key>
+	<string>Go to Function Definition</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>source.php.embedded.block.html</string>
+	<key>uuid</key>
+	<string>5B2EC185-EBF3-4848-AB77-C16DD95E2EE9</string>
+</dict>
+</plist>
