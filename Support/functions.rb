@@ -13,7 +13,7 @@ class FunctionFetch
     if result =~ /^(.*)\:([0-9]+)\:(.*)$/
       exec "#{@mate} --line #{$2} '#{@dir}/#{$1}'"
     else
-      "Sorry, couldn't find function named '#{term}'."
+      "Sorry, couldn't find a function or class named '#{term}'."
     end
   end
   
@@ -23,13 +23,13 @@ class FunctionFetch
     if result =~ /^(.*)\:([0-9]+)\:(.*)$/
       $3
     else
-      "Sorry, couldn't find function named '#{term}'."
+      "Sorry, couldn't find a function or class named '#{term}'."
     end
   end
   
   def search(term)
     # make sure we get functions named with &'s
-    search = "function &?#{term}"
+    search = "(function|class) &?#{term}"
     
     prepare_search = "cd '#{@dir}'; '#{@ack}' -1 --after-context=0 --before-context=0 --nogroup --flush --nocolor --noenv --nofollow '#{search}'"
 

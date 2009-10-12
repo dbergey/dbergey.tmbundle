@@ -17,7 +17,7 @@ puts fetch.goToDef(STDIN.read)
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
-	<string>~$</string>
+	<string>~@</string>
 	<key>name</key>
 	<string>Go to Function Definition</string>
 	<key>output</key>
