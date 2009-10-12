@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-ENV['TM_ACK'] = '/Users/dbergey/Library/Application Support/TextMate/Bundles/Daniel Bergey’s Bundle.tmbundle/Support/ack-standalone.sh'
-
 class FunctionFetch
   def initialize
     @ack = ENV['TM_ACK'] || ENV['TM_BUNDLE_SUPPORT'] +'/ack-standalone.sh'
@@ -46,5 +44,8 @@ class FunctionFetch
   end 
 end
 
+# DEBUG
+
+# ENV['TM_ACK'] = '/Users/dbergey/Library/Application Support/TextMate/Bundles/Daniel Bergey’s Bundle.tmbundle/Support/ack-standalone.sh'
 # fetch = FunctionFetch.new
 # puts fetch.getDef('cudatree_object_create_by_type')
