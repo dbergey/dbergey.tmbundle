@@ -9,7 +9,7 @@
 
 require ENV['TM_BUNDLE_SUPPORT']+'/definition_fetch.rb'
 
-fetch = DefinitionFetchFetch.new
+fetch = DefinitionFetch.new
 puts fetch.goToDef(STDIN.read)
 </string>
 	<key>fallbackInput</key>

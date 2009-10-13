@@ -21,7 +21,7 @@ class DefinitionFetch
   def getDef(term)
     result = self.search(term)
     if result =~ /^(.*)\:([0-9]+)\:(.*)$/
-      $3 + "\n  " + $1 + ' (' + $2 + ')'
+      $3.strip + "\n  " + $1 + ' (' + $2 + ')'
     else
       "Sorry, couldn't find a function, class or constant named '#{term}'."
     end
