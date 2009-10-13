@@ -19,7 +19,7 @@ puts fetch.goToDef(STDIN.read)
 	<key>keyEquivalent</key>
 	<string>~@</string>
 	<key>name</key>
-	<string>Go to Function Definition</string>
+	<string>Go to Definition</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>

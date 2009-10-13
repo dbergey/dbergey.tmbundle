@@ -18,7 +18,7 @@ puts fetch.getDef(STDIN.read)</string>
 	<key>keyEquivalent</key>
 	<string>~</string>
 	<key>name</key>
-	<string>Show Function Definition</string>
+	<string>Show Definition</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
