@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-class FunctionFetch
+class DefinitionFetch
   def initialize
     @ack = ENV['TM_ACK'] || ENV['TM_BUNDLE_SUPPORT'] + '/ack-standalone.sh'
     @mate = ENV['TM_MATE'] || '/usr/local/bin/mate'
@@ -13,7 +13,7 @@ class FunctionFetch
     if result =~ /^(.*)\:([0-9]+)\:(.*)$/
       exec "#{@mate} --line #{$2} '#{@dir}/#{$1}'"
     else
-      "Sorry, couldn't find a function or class named '#{term}'."
+      "Sorry, couldn't find a function, class or constant named '#{term}'."
     end
   end
   
@@ -23,13 +23,20 @@ class FunctionFetch
     if result =~ /^(.*)\:([0-9]+)\:(.*)$/
       $3 + "\n  " + $1 + ' (' + $2 + ')'
     else
-      "Sorry, couldn't find a function or class named '#{term}'."
+      "Sorry, couldn't find a function, class or constant named '#{term}'."
     end
   end
   
   def search(term)
-    # make sure we get functions named with &'s
-    search = "(function|class|def) &?#{term}"
+    # searching for ruby or php?
+    if ( ENV['TM_SCOPE'] || [] ).split(" ").include?('source.ruby')
+      search = ( term.upcase == term ) ? term + ' =' : 'class|def ' + term
+    elsif ( ENV['TM_SCOPE'] || [] ).split(" ").include?('source.php')
+      # NOTE: this is somewhat artificial as PHP does not strictly use uppercase-only constants
+      search = ( term.upcase == term ) ? "define\\(\\W#{term}\\W" : 'function|class &?' + term
+    else
+      search = ''
+    end
     
     search_command = "cd '#{@dir}'; '#{@ack}' -1 --after-context=0 --before-context=0 --nogroup --flush --nocolor --noenv --nofollow '#{search}'"
     

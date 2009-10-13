@@ -7,9 +7,9 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
 
-require ENV['TM_BUNDLE_SUPPORT']+'/functions.rb'
+require ENV['TM_BUNDLE_SUPPORT']+'/definition_fetch.rb'
 
-fetch = FunctionFetch.new
+fetch = DefinitionFetchFetch.new
 puts fetch.goToDef(STDIN.read)
 </string>
 	<key>fallbackInput</key>
