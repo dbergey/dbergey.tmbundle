@@ -7,7 +7,7 @@
 }-webkit-border-radius: ${1:5px};${100:
 }-moz-border-radius: ${1:5px};$0</string>
 	<key>name</key>
-	<string>border-radius: [for Safari, FF &amp; IE] copy</string>
+	<string>border-radius: [for Safari, FF &amp; IE]</string>
 	<key>scope</key>
 	<string>source.css</string>
 	<key>tabTrigger</key>

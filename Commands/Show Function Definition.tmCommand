@@ -22,7 +22,7 @@ puts fetch.getDef(STDIN.read)</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
-	<string>source.php.embedded.block.html</string>
+	<string>source.php, source.ruby</string>
 	<key>uuid</key>
 	<string>690649C3-CE71-4DDC-A41F-F6BBA1B8AC53</string>
 </dict>

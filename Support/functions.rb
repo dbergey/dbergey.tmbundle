@@ -2,7 +2,7 @@
 
 class FunctionFetch
   def initialize
-    @ack = ENV['TM_ACK'] || ENV['TM_BUNDLE_SUPPORT'] +'/ack-standalone.sh'
+    @ack = ENV['TM_ACK'] || ENV['TM_BUNDLE_SUPPORT'] + '/ack-standalone.sh'
     @mate = ENV['TM_MATE'] || '/usr/local/bin/mate'
     @dir = ENV['TM_PROJECT_DIRECTORY'] || '/Users/dbergey/repos/bitleap/branches/trunk'
   end
@@ -21,7 +21,7 @@ class FunctionFetch
   def getDef(term)
     result = self.search(term)
     if result =~ /^(.*)\:([0-9]+)\:(.*)$/
-      $3
+      $3 + "\n  " + $1 + ' (' + $2 + ')'
     else
       "Sorry, couldn't find a function or class named '#{term}'."
     end
@@ -29,23 +29,23 @@ class FunctionFetch
   
   def search(term)
     # make sure we get functions named with &'s
-    search = "(function|class) &?#{term}"
+    search = "(function|class|def) &?#{term}"
     
-    prepare_search = "cd '#{@dir}'; '#{@ack}' -1 --after-context=0 --before-context=0 --nogroup --flush --nocolor --noenv --nofollow '#{search}'"
-
+    search_command = "cd '#{@dir}'; '#{@ack}' -1 --after-context=0 --before-context=0 --nogroup --flush --nocolor --noenv --nofollow '#{search}'"
+    
     result = ''
-    IO.popen(prepare_search) do |pipe|
+    IO.popen(search_command) do |pipe|
       pipe.each do |line|
         result << line
         $stdout.flush
       end
     end
+    
     result
-  end 
+  end
 end
 
 # DEBUG
-
 # ENV['TM_ACK'] = '/Users/dbergey/Library/Application Support/TextMate/Bundles/Daniel Bergey’s Bundle.tmbundle/Support/ack-standalone.sh'
 # fetch = FunctionFetch.new
 # puts fetch.getDef('cudatree_object_create_by_type')
