@@ -37,7 +37,6 @@ class DefinitionFetch
     else
       search = ''
     end
-    puts search
     search_command = "cd '#{@dir}'; '#{@ack}' -1 --after-context=0 --before-context=0 --nogroup --flush --nocolor --noenv --nofollow '#{search}'"
     
     result = ''
