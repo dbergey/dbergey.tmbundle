@@ -29,15 +29,15 @@ class DefinitionFetch
   
   def search(term)
     # searching for ruby or php?
-    if ( ENV['TM_SCOPE'] || [] ).split(" ").include?('source.ruby')
-      search = ( term.upcase == term ) ? term + ' =' : 'class|def ' + term
-    elsif ( ENV['TM_SCOPE'] || [] ).split(" ").include?('source.php')
+    if ( ENV['TM_SCOPE'] || [] ).split(" ").reject! { |e| e =~ /source\.ruby\.?.*/ }
+      search = ( term.upcase == term ) ? term + ' =' : '(class|def) ' + term
+    elsif ( ENV['TM_SCOPE'] || [] ).split(" ").reject! { |e| e =~ /source\.php\.?.*/ }
       # NOTE: this is somewhat artificial as PHP does not strictly use uppercase-only constants
-      search = ( term.upcase == term ) ? "define\\(\\W#{term}\\W" : 'function|class &?' + term
+      search = ( term.upcase == term ) ? "define\\(\\W#{term}\\W" : '(function|class) &?' + term
     else
       search = ''
     end
-    
+    puts search
     search_command = "cd '#{@dir}'; '#{@ack}' -1 --after-context=0 --before-context=0 --nogroup --flush --nocolor --noenv --nofollow '#{search}'"
     
     result = ''
