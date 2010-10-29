@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>// DEBUG
+file_put_contents('${4:/var/log/bitleap.log}', '$1: '${2:.var_export(${3:$1}, true)}."\n\n"${5:, FILE_APPEND});$0</string>
+	<key>name</key>
+	<string>PHP Debug Log</string>
+	<key>scope</key>
+	<string>source.php</string>
+	<key>tabTrigger</key>
+	<string>qlog</string>
+	<key>uuid</key>
+	<string>E6761E3C-AE4B-4E68-9809-1FE137780AAE</string>
+</dict>
+</plist>

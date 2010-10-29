@@ -3,7 +3,7 @@
 class DefinitionFetch
   def initialize
     @ack = ENV['TM_ACK'] || ENV['TM_BUNDLE_SUPPORT'] + '/ack-standalone.sh'
-    @mate = ENV['TM_MATE'] || '/usr/local/bin/mate'
+    @mate = ENV['TM_MATE'] || '/usr/bin/env mate'
     @dir = ENV['TM_PROJECT_DIRECTORY'] || '/Users/dbergey/repos/bitleap/branches/trunk'
   end
   
@@ -33,7 +33,7 @@ class DefinitionFetch
       search = ( term.upcase == term ) ? term + ' =' : '(class|def) ' + term
     elsif ( ENV['TM_SCOPE'] || [] ).split(" ").reject! { |e| e =~ /source\.php\.?.*/ }
       # NOTE: this is somewhat artificial as PHP does not strictly use uppercase-only constants
-      search = ( term.upcase == term ) ? "define\\(\\W#{term}\\W" : '(function|class) &?' + term
+      search = ( term.upcase == term ) ? "define\\(\\W#{term}\\W" : '(function|class) &?' + term + '\W'
     else
       search = ''
     end
