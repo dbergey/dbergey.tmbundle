@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string># DEBUG
+use Data::Dumper;
+print STDERR Data::Dumper-&gt;new([\\$1], ['${2:$1}'])-&gt;Dump;$0
+</string>
+	<key>name</key>
+	<string>Perl Debug Log</string>
+	<key>scope</key>
+	<string>source.perl</string>
+	<key>tabTrigger</key>
+	<string>qlog</string>
+	<key>uuid</key>
+	<string>9687156B-6AAD-408D-B2CE-98EBF756DDAD</string>
+</dict>
+</plist>
